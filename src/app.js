@@ -1,6 +1,15 @@
 require('leaflet')
 require('leaflet.markercluster')
 
+function showPopup(values) {
+  let id = values[1]
+  let wikidataId = values[0].match(/http:\/\/www.wikidata.org\/entity\/(.*)$/)[1]
+
+  let ret = '<div class="header"><b>#' + id + '</b> (<a target="_blank" href="https://www.wikidata.org/wiki/' + wikidataId + '">' + wikidataId + '</a>)</div>'
+
+  return ret
+}
+
 window.onload = function () {
   var map = L.map('map').fitBounds([[46.55, 9.57], [49.02, 17.09]])
 
@@ -30,6 +39,7 @@ window.onload = function () {
         let coords = values[2].match(/^Point\(([0-9\.]+) ([0-9\.]+)\)/)
         if (coords) {
           let marker = L.marker([coords[2], coords[1]])
+          marker.bindPopup(() => showPopup(values))
           markers.addLayer(marker)
         }
       })
