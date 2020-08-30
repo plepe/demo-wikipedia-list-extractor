@@ -1,0 +1,9 @@
+{
+  "name": "demo-wikipedia-list-extractor",
+  "version": "0.0.0",
+  "description": "Show all heritage protected objects of Austria on a map",
+  "main": "index.js",
+  "repository": "https://github.com/plepe/demo-wikipedia-list-extractor",
+  "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
+  "license": "MIT"
+}
