@@ -5,5 +5,19 @@
   "main": "index.js",
   "repository": "https://github.com/plepe/demo-wikipedia-list-extractor",
   "author": "Stephan Bösch-Plepelits <skunk@xover.mud.at>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "browserify src/app.js -o dist/app.js",
+    "lint": "standard --fix src/*.js",
+    "watch": "watchify --debug src/app.js -o dist/app.js -v"
+  },
+  "dependencies": {
+    "leaflet": "^1.6.0",
+    "leaflet.markercluster": "^1.4.1"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.2",
+    "standard": "^14.3.4",
+    "watchify": "^3.11.1"
+  }
 }
