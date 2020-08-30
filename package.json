@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "leaflet": "^1.6.0",
-    "leaflet.markercluster": "^1.4.1"
+    "leaflet.markercluster": "^1.4.1",
+    "wikipedia-list-extractor": "*"
   },
   "devDependencies": {
     "browserify": "^16.5.2",
