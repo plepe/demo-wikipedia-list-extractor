@@ -9,6 +9,7 @@
   "scripts": {
     "build": "browserify src/app.js -o dist/app.js",
     "lint": "standard --fix src/*.js",
+    "prepare": "npm run build",
     "watch": "watchify --debug src/app.js -o dist/app.js -v"
   },
   "dependencies": {
