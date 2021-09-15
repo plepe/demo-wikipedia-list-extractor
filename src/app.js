@@ -19,6 +19,12 @@ function showPopup(values) {
 
         entry.data = entry.rendered
 
+        if (entry.data.image) {
+          let url = 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/' + entry.data.image.id + '&width=300'
+
+          dom.innerHTML += '<img src="' + encodeURI(url) + '">'
+        }
+
         dom.innerHTML +=
           '<h3>' + (entry.data.title || '')+ '</h3>' +
           '<p>' + (entry.data.description || '') + '</p>' +
