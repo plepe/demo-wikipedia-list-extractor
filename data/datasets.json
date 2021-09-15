@@ -1,0 +1,10 @@
+{
+  "AT-BDA": {
+    "title": "Österr. Bundesdenkmäler",
+    "bounds": [[46.55, 9.57], [49.02, 17.09]]
+  },
+  "test": {
+    "title": "Test",
+    "bounds": [[10, 10], [20, 20]]
+  }
+}

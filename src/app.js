@@ -30,16 +30,51 @@ function showPopup(values) {
   return dom
 }
 
+let datasets
+
+let map
+let markers = null
+let datasetId
+let dataset
+
 window.onload = function () {
-  var map = L.map('map').fitBounds([[46.55, 9.57], [49.02, 17.09]])
+  map = L.map('map').fitBounds([[-70, -180], [70, 180]])
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  let markers = L.markerClusterGroup()
+  global.fetch('data/datasets.json')
+    .then(res => res.json())
+    .then(result => {
+      datasets = result
 
-  global.fetch('data.csv')
+      const select = document.getElementById('dataset')
+      for (let k in datasets) {
+        const option = document.createElement('option')
+        option.value = k
+        option.appendChild(document.createTextNode(datasets[k].title))
+        select.appendChild(option)
+      }
+
+      if (select.value) {
+        init(select.value)
+      }
+
+      select.onchange = () => {
+        deinit()
+        init(select.value)
+      }
+    })
+}
+
+function init (_id) {
+  datasetId = _id
+  dataset = datasets[datasetId]
+
+  markers = L.markerClusterGroup()
+
+  global.fetch('data/' + datasetId + '.csv')
     .then(res => res.text())
     .then(data => {
       data = data.split(/\r\n/g)
@@ -65,9 +100,18 @@ window.onload = function () {
       })
 
       map.addLayer(markers)
+
+      map.flyToBounds(dataset.bounds)
     })
 
-    extractor = new WikipediaListExtractor('AT-BDA', {
+    extractor = new WikipediaListExtractor(datasetId, {
       serverUrl: 'http://localhost:8080'
     })
+}
+
+function deinit () {
+  if (markers !== null) {
+    map.removeLayer(markers)
+    markers = null
+  }
 }

@@ -11,10 +11,20 @@
   position: absolute;
   top: 0; bottom:0; left: 0; right: 0;
 }
+#menu {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  z-index: 10000;
+}
 </style>
 <script src="dist/app.js"></script>
 </head>
 <body>
 <div id='map'>
+<div id='menu'>
+  <select id='dataset'>
+  </select>
+</div>
 </body>
 </html>

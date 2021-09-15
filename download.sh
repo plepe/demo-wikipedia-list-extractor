@@ -1,1 +1,1 @@
-curl -H 'Accept: text/csv' --data-urlencode 'query@wikidata.qry' 'https://query.wikidata.org/sparql' > data.csv
+curl -H 'Accept: text/csv' --data-urlencode 'query@queries/AT-BDA.qry' 'https://query.wikidata.org/sparql' > data/AT-BDA.csv
