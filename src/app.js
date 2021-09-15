@@ -1,6 +1,6 @@
 require('leaflet')
 require('leaflet.markercluster')
-let WikipediaListExtractor = require('wikipedia-list-extractor')
+let WikipediaListExtractor = require('wikipedia-list-extractor/client')
 
 let extractor
 
@@ -16,6 +16,8 @@ function showPopup(values) {
     extractor.get(id, (err, result) => {
       if (result.length) {
         let entry = result[0]
+
+        entry.data = entry.rendered
 
         dom.innerHTML +=
           '<h3>' + (entry.data.title || '')+ '</h3>' +
@@ -65,11 +67,7 @@ window.onload = function () {
       map.addLayer(markers)
     })
 
-  global.fetch('node_modules/wikipedia-list-extractor/data/AT-BDA.json')
-    .then(res => res.json())
-    .then(data => {
-      extractor = new WikipediaListExtractor('AT-BDA', data, {
-        proxy: 'proxy/?'
-      })
+    extractor = new WikipediaListExtractor('AT-BDA', {
+      serverUrl: 'http://localhost:8080'
     })
 }
