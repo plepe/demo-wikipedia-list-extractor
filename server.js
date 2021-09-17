@@ -15,6 +15,9 @@ const options = {}
 
 const contentTypes = {
   css: 'text/css',
+  svg: 'image/svg+xml',
+  png: 'image/png',
+  jpg: 'image/jpeg',
   html: 'text/html',
   js: 'application/javascript',
   json: 'application/json'

@@ -1,7 +1,14 @@
 {
   "AT-BDA": {
     "title": "Österr. Bundesdenkmäler",
-    "bounds": [[46.55, 9.57], [49.02, 17.09]]
+    "bounds": [[46.55, 9.57], [49.02, 17.09]],
+    "links": [
+      {
+        "url": "https://wikidata.org/wiki/{{ attribute(item.raw, 'WD-Item') }}",
+        "title": "Wikidata",
+        "icon": "img/wikidata.svg"
+      }
+    ]
   },
   "test": {
     "title": "Test",

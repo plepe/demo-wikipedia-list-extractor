@@ -16,6 +16,7 @@
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
     "query-string": "^7.0.1",
+    "twig": "^1.15.4",
     "wikipedia-list-extractor": "https://github.com/plepe/wikipedia-list-extractor"
   },
   "devDependencies": {

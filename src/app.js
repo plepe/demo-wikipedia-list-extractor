@@ -1,8 +1,10 @@
 require('leaflet')
 require('leaflet.markercluster')
 let WikipediaListExtractor = require('wikipedia-list-extractor/client')
+const Twig = require('twig')
 
 let extractor
+let templates = {}
 
 function showPopup(values) {
   let id = values[1]
@@ -29,6 +31,25 @@ function showPopup(values) {
           '<h3>' + (entry.data.title || '')+ '</h3>' +
           '<p>' + (entry.data.description || '') + '</p>' +
           '<a target="_blank" href="' + entry.url + '">Quelle</a>'
+
+        if (dataset.links) {
+          let links = ''
+
+          dataset.links.forEach(
+            (linkDef) => {
+              if (!(linkDef.url in templates)) {
+                templates[linkDef.url] = Twig.twig({
+                  data: linkDef.url
+                })
+              }
+              let template = templates[linkDef.url]
+
+              links += '<a target="_blank" href="' + encodeURI(template.render({item: entry})) + '" title="' + encodeURI(linkDef.title) + '"><img src="' + encodeURI(linkDef.icon) + '"></a>'
+            }
+          )
+
+          dom.innerHTML += "<div class='links'>" + links + "</div>"
+        }
       }
     })
   }
