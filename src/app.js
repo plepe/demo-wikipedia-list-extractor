@@ -11,25 +11,29 @@ function showPopup(values) {
   let wikidataId = values[0].match(/http:\/\/www.wikidata.org\/entity\/(.*)$/)[1]
 
   let dom = document.createElement('div')
+  dom.className = 'popup'
 
-  dom.innerHTML = '<div class="header"><b>#' + id + '</b> (<a target="_blank" href="https://www.wikidata.org/wiki/' + wikidataId + '">' + wikidataId + '</a>)</div>'
+  dom.innerHTML = 'Loading ...'
 
   if (extractor) {
     extractor.get(id, (err, result) => {
+      dom.innerHTML = ''
+
       if (result.length) {
+        let content = ''
         let entry = result[0]
 
         entry.data = entry.rendered
 
+        content += '<div class="title">' + (entry.data.title || '')+ '</div>'
+
         if (entry.data.image) {
           let url = 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/' + entry.data.image.id + '&width=300'
 
-          dom.innerHTML += '<img src="' + encodeURI(url) + '">'
+          content += '<div class="image"><img src="' + encodeURI(url) + '"></div>'
         }
 
-        dom.innerHTML +=
-          '<h3>' + (entry.data.title || '')+ '</h3>' +
-          '<p>' + (entry.data.description || '') + '</p>'
+        content += '<div class="description">' + (entry.data.description || '') + '</div>'
 
         let links = ''
         if (entry.url) {
@@ -55,8 +59,10 @@ function showPopup(values) {
         }
 
         if (links) {
-          dom.innerHTML += "<div class='links'>" + links + "</div>"
+          content += "<div class='links'>" + links + "</div>"
         }
+
+        dom.innerHTML = content
       }
     })
   }
@@ -128,7 +134,7 @@ function init (_id) {
         let coords = values[2].match(/^Point\(([0-9\.]+) ([0-9\.]+)\)/)
         if (coords) {
           let marker = L.marker([coords[2], coords[1]])
-          marker.bindPopup(() => showPopup(values))
+          marker.bindPopup(() => showPopup(values), { minWidth: '400' })
           markers.addLayer(marker)
         }
       })

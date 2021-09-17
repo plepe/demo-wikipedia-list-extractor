@@ -8,7 +8,33 @@
   top: 1em;
   z-index: 10000;
 }
-.links > a > img {
+.popup {
+}
+.popup > .title {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.popup > .links {
+  clear: left;
+}
+.popup > .links > a {
+  display: inline-block;
+  text-align: center;
+  min-width: 2em;
+}
+.popup > .links > a > img {
   width: auto;
   height: 1.5em;
+  border-radius: 0.5em;
+}
+.popup > .image {
+  float: left;
+  margin-right: 0.5em;
+}
+.popup > .image > img {
+  max-height: 15em;
+  max-width: 15em;
+}
+.popup > .description {
 }
