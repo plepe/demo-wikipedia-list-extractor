@@ -29,12 +29,14 @@ function showPopup(values) {
 
         dom.innerHTML +=
           '<h3>' + (entry.data.title || '')+ '</h3>' +
-          '<p>' + (entry.data.description || '') + '</p>' +
-          '<a target="_blank" href="' + entry.url + '">Quelle</a>'
+          '<p>' + (entry.data.description || '') + '</p>'
+
+        let links = ''
+        if (entry.url) {
+          links += '<a target="_blank" href="' + entry.url + '">Quelle</a>'
+        }
 
         if (dataset.links) {
-          let links = ''
-
           dataset.links.forEach(
             (linkDef) => {
               if (!(linkDef.url in templates)) {
@@ -43,11 +45,16 @@ function showPopup(values) {
                 })
               }
               let template = templates[linkDef.url]
+              let url = template.render({item: entry})
 
-              links += '<a target="_blank" href="' + encodeURI(template.render({item: entry})) + '" title="' + encodeURI(linkDef.title) + '"><img src="' + encodeURI(linkDef.icon) + '"></a>'
+              if (url.trim() !== '') {
+                links += '<a target="_blank" href="' + encodeURI(url) + '" title="' + encodeURI(linkDef.title) + '"><img src="' + encodeURI(linkDef.icon) + '"></a>'
+              }
             }
           )
+        }
 
+        if (links) {
           dom.innerHTML += "<div class='links'>" + links + "</div>"
         }
       }
