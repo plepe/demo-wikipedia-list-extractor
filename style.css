@@ -38,3 +38,6 @@
 }
 .popup > .description {
 }
+.leaflet-popup-content {
+  width: 400px;
+}

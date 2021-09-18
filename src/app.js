@@ -134,7 +134,7 @@ function init (_id) {
         let coords = values[2].match(/^Point\(([0-9\.]+) ([0-9\.]+)\)/)
         if (coords) {
           let marker = L.marker([coords[2], coords[1]])
-          marker.bindPopup(() => showPopup(values), { minWidth: '400' })
+          marker.bindPopup(() => showPopup(values), { minWidth: 'auto', maxWidth: 'auto' })
           markers.addLayer(marker)
         }
       })
