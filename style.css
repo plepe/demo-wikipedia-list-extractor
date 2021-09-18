@@ -39,5 +39,7 @@
 .popup > .description {
 }
 .leaflet-popup-content {
-  width: 400px;
+  width: 30em;
+  max-height: 20em;
+  overflow-y: auto;
 }
