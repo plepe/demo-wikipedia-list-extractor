@@ -17,6 +17,11 @@
         "url": "https://wikidata.org/wiki/{{ attribute(item.raw, 'WD-Item') }}",
         "title": "Wikidata",
         "icon": "img/wikidata.svg"
+      },
+      {
+        "url": "https://openstreetmap.at/checker/#bda/{{ item.id }}",
+        "title": "Open in ogd-wikimedia-osm-checker",
+        "icon": "img/checker.svg"
       }
     ]
   },
