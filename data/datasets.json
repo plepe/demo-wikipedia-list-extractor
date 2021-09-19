@@ -1,6 +1,7 @@
 {
   "AT-BDA": {
     "title": "Österr. Bundesdenkmäler",
+    "wikidata-property": "P2951",
     "bounds": [[46.55, 9.57], [49.02, 17.09]],
     "links": [
       {

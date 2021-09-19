@@ -9,12 +9,15 @@
   "scripts": {
     "build": "browserify src/app.js -o dist/app.js",
     "lint": "standard --fix src/*.js",
-    "prepare": "npm run build",
+    "download": "node download.js",
+    "prepare": "npm run build && npm run download",
     "watch": "watchify --debug src/app.js -o dist/app.js -v"
   },
   "dependencies": {
+    "async": "^3.2.1",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
+    "node-fetch": "^2.6.0",
     "query-string": "^7.0.1",
     "twig": "^1.15.4",
     "wikipedia-list-extractor": "https://github.com/plepe/wikipedia-list-extractor"

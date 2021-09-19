@@ -1,5 +1,0 @@
-select ?item ?value ?coord
-where {
-  ?item wdt:P2951 ?value.
-  ?item wdt:P625 ?coord.
-}
