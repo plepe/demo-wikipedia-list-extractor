@@ -28,9 +28,9 @@ function showPopup(values) {
         content += '<div class="title">' + (entry.data.title || '')+ '</div>'
 
         if (entry.data.image) {
-          let url = 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/' + entry.data.image.id + '&width=300'
+          let url = 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/' + encodeURIComponent(entry.data.image.id) + '&width=300'
 
-          content += '<div class="image"><img src="' + encodeURI(url) + '"></div>'
+          content += '<div class="image"><img src="' + url + '"></div>'
         }
 
         content += '<div class="description">' + (entry.data.description || '') + '</div>'
