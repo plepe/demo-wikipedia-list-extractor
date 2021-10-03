@@ -1,6 +1,6 @@
 {
-  "AT-BDA": {
-    "title": "Österr. Bundesdenkmäler",
+  "AT-BDA-objid": {
+    "title": "Österr. Bundesdenkmäler (..2020)",
     "wikidata-property": "P2951",
     "bounds": [[46.55, 9.57], [49.02, 17.09]],
     "links": [
@@ -21,6 +21,33 @@
       },
       {
         "url": "https://openstreetmap.at/checker/#bda/{{ item.id }}",
+        "title": "Open in ogd-wikimedia-osm-checker",
+        "icon": "img/checker.svg"
+      }
+    ]
+  },
+  "AT-BDA-heris": {
+    "title": "Österr. Bundesdenkmäler (2021..)",
+    "wikidata-property": "P9154",
+    "bounds": [[46.55, 9.57], [49.02, 17.09]],
+    "links": [
+      {
+        "url": "{% if item.raw.Artikel %}https://de.wikipedia.org/wiki/{{ item.raw.Artikel|replace({' ': '_'}) }}{% endif %}",
+        "title": "Wikipedia",
+        "icon": "img/wikipedia.svg"
+      },
+      {
+        "url": "{% if item.raw.Commonscat %}https://commons.wikimedia.org/wiki/Category:{{ item.raw.Commonscat|replace({' ': '_'}) }}{% endif %}",
+        "title": "Wikimedia Commons",
+        "icon": "img/commons.svg"
+      },
+      {
+        "url": "https://wikidata.org/wiki/{{ attribute(item.raw, 'WD-Item') }}",
+        "title": "Wikidata",
+        "icon": "img/wikidata.svg"
+      },
+      {
+        "url": "https://openstreetmap.at/checker/#bda-heris/{{ item.id }}",
         "title": "Open in ogd-wikimedia-osm-checker",
         "icon": "img/checker.svg"
       }
