@@ -11,7 +11,7 @@ const { JSDOM } = jsdom
 const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>')
 global.document = dom.window.document
 
-const options = {}
+const options = {port: 8080}
 
 const contentTypes = {
   css: 'text/css',
@@ -81,4 +81,6 @@ function requestListener (req, res) {
 }
 
 const server = http.createServer(requestListener)
-server.listen(8080)
+server.listen(options.port, () => {
+  console.log('opened server on port', server.address().port)
+})
