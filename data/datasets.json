@@ -22,7 +22,7 @@
         "icon": "img/wikidata.svg"
       },
       {
-        "url": "https://openstreetmap.at/checker/#bda-heris/{{ item.id }}",
+        "url": "https://openstreetmap.at/checker/#bda/{{ item.wikidata.P9154.values[0] }}",
         "title": "Open in ogd-wikimedia-osm-checker",
         "icon": "img/checker.svg"
       }
@@ -51,10 +51,11 @@
         "icon": "img/wikidata.svg"
       },
       {
-        "url": "https://openstreetmap.at/checker/#bda-heris/{{ item.id }}",
+        "url": "https://openstreetmap.at/checker/#bda/{{ item.wikidata.P9154.values[0] }}",
         "title": "Open in ogd-wikimedia-osm-checker",
         "icon": "img/checker.svg"
       }
+
     ]
   },
   "INT-UNESCO-de": {
