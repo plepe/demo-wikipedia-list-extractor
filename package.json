@@ -14,13 +14,13 @@
     "watch": "watchify --debug src/app.js -o dist/app.js -v"
   },
   "dependencies": {
-    "async": "^3.2.1",
+    "async": "^3.2.2",
     "leaflet": "^1.6.0",
-    "leaflet.markercluster": "^1.4.1",
-    "node-fetch": "^2.6.0",
+    "leaflet.markercluster": "^1.5.3",
+    "node-fetch": "^2.6.6",
     "query-string": "^7.0.1",
     "twig": "^1.15.4",
-    "wikipedia-list-extractor": "https://github.com/plepe/wikipedia-list-extractor"
+    "wikipedia-list-extractor": "git+https://github.com/plepe/wikipedia-list-extractor.git"
   },
   "devDependencies": {
     "browserify": "^16.5.2",
