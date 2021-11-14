@@ -8,6 +8,9 @@ let templates = {}
 
 function showPopup(values) {
   let id = values[1]
+  if (dataset.idPrefix) {
+    id = dataset.idPrefix + id
+  }
   let wikidataId = values[0].match(/http:\/\/www.wikidata.org\/entity\/(.*)$/)[1]
 
   let dom = document.createElement('div')
@@ -144,7 +147,7 @@ function init (_id) {
       map.flyToBounds(dataset.bounds)
     })
 
-    extractor = new WikipediaListExtractor(datasetId, {
+    extractor = new WikipediaListExtractor(dataset.list, {
       serverUrl: 'http://localhost:8080'
     })
 }

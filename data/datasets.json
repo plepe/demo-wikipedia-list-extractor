@@ -1,7 +1,9 @@
 {
-  "AT-BDA-objid": {
-    "title": "Österr. Bundesdenkmäler (..2020)",
-    "wikidata-property": "P2951",
+  "AT-BDA-heris": {
+    "title": "Österr. Bundesdenkmäler (2021..)",
+    "list": "AT-BDA",
+    "wikidata-property": "P9154",
+    "idPrefix": "id-",
     "bounds": [[46.55, 9.57], [49.02, 17.09]],
     "links": [
       {
@@ -20,15 +22,17 @@
         "icon": "img/wikidata.svg"
       },
       {
-        "url": "https://openstreetmap.at/checker/#bda/{{ item.id }}",
+        "url": "https://openstreetmap.at/checker/#bda-heris/{{ item.id }}",
         "title": "Open in ogd-wikimedia-osm-checker",
         "icon": "img/checker.svg"
       }
     ]
   },
-  "AT-BDA-heris": {
-    "title": "Österr. Bundesdenkmäler (2021..)",
-    "wikidata-property": "P9154",
+  "AT-BDA-objid": {
+    "title": "Österr. Bundesdenkmäler (..2020)",
+    "list": "AT-BDA",
+    "wikidata-property": "P2951",
+    "idPrefix": "objid-",
     "bounds": [[46.55, 9.57], [49.02, 17.09]],
     "links": [
       {
@@ -55,6 +59,7 @@
   },
   "INT-UNESCO-de": {
     "title": "Weltkulturerbestätten",
+    "list": "INT-UNESCO-de",
     "wikidata-property": "P757",
     "bounds": [[46.55, 9.57], [49.02, 17.09]],
     "links": [
