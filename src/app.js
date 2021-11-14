@@ -149,7 +149,7 @@ function init (_id) {
     })
 
     extractor = new WikipediaListExtractor(dataset.list, {
-      serverUrl: 'http://localhost:8080'
+      serverUrl: '.'
     })
 }
 
