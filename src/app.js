@@ -82,6 +82,7 @@ let dataset
 
 window.onload = function () {
   map = L.map('map').fitBounds([[-70, -180], [70, 180]])
+  map.attributionControl.setPrefix('<a target="_blank" href="https://github.com/plepe/demo-wikipedia-list-extractor">demo-wikipedia-list-extractor</a>')
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
